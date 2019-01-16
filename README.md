@@ -21,6 +21,7 @@ gradle5.1.1 安装参考官网文档 https://gradle.org/install/
 
 
 注意事项：
+
   1.idea 需要手动的去安装lombok插件
      ![Image text](https://github.com/shanewds/Image/blob/master/image/lombok-idea-install.png) 
 
