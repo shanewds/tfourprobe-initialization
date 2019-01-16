@@ -36,6 +36,7 @@ gradle5.1.1 安装参考官网文档 https://gradle.org/install/
     
   5.添加ehcache缓存 此配置设置过期时间2分钟
      implementation 'net.sf.ehcache:ehcache:2.10.6'
+     
      implementation 'org.springframework.boot:spring-boot-starter-cache:2.1.2.RELEASE'
   
     application.yml
