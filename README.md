@@ -26,3 +26,10 @@ gradle5.1.1 安装参考官网文档 https://gradle.org/install/
 
   2.idea 使用Lombok编译时无法找到get/set方法,解决方法
     ![Image text](https://github.com/shanewds/Image/blob/master/image/lombok-idea-get.png) 
+  3.durid数据源登录
+    http://localhost:8082/TfourProbe/druid/login.html
+    ![Image text](https://github.com/shanewds/Image/blob/master/image/durid-query-sql.png) 
+    ![Image text](https://github.com/shanewds/Image/blob/master/image/durid-controller-count.png)
+  4.gradle整合springboot打成jar和war包的方式
+    ![Image text](https://github.com/shanewds/Image/blob/master/image/gradle-springboot-jar:war.png)
+    
