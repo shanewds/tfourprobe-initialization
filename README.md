@@ -35,8 +35,10 @@ gradle5.1.1 安装参考官网文档 https://gradle.org/install/
     ![Image text](https://github.com/shanewds/Image/blob/master/image/gradle-springboot-jar:war.png)
     
   5.添加ehcache缓存 此配置设置过期时间2分钟
-     implementation 'net.sf.ehcache:ehcache:2.10.6'
+  
+     需要添加依赖的jar
      
+     implementation 'net.sf.ehcache:ehcache:2.10.6'
      implementation 'org.springframework.boot:spring-boot-starter-cache:2.1.2.RELEASE'
   
     application.yml
