@@ -2,7 +2,7 @@
 基本搭建
 基于springboot+jpa+gradle 环境的搭建，整合线程池和阿里巴巴数据库数据源
 
-开发环境 MacOS   idea 2018.2.2 + jdk1.8 + springboot2.2 +jpa+gradle5.1.1
+开发环境 MacOS   idea 2018.2.2 + jdk1.8 + springboot2.1.2.RELEASE +jpa+gradle5.1.1
 
 sql脚本生成，先运行springboot启动类自动生成表结构
 
