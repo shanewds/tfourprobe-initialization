@@ -51,7 +51,7 @@ gradle5.1.1 安装参考官网文档 https://gradle.org/install/
      然后，在springboot启动类添加启动缓冲注解 @EnableCaching
      
   6.添加日志(此配置文件设置的级别是info,所以log.debug("debug测试")不会打印)
-    命名文件logback.xml，无须在application.yml文件中进行加载xml,springboot会默认的加载
+    命名文件logback.xml，无须在application.yml文件中进行加载logback.xml,springboot会默认的加载
     
     需要在java类中定义 private static final Logger log = LoggerFactory.getLogger(类名.class);
     
