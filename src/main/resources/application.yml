@@ -2,7 +2,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: admin
-    password: syiaas_1234
+    password: 123456
     url: jdbc:mysql://127.0.0.1/TfourData?characterEncoding=utf-8&useSSL=false
 #    username: root
 #    password: admin_123456
