@@ -27,4 +27,5 @@ public class LabelTouchRecord {
     @Column(nullable = false)
     private Long datetime;
 
+
 }

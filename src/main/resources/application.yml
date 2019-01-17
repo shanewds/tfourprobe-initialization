@@ -3,10 +3,9 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: admin
     password: syiaas_1234
+    url: jdbc:mysql://127.0.0.1/TfourData?characterEncoding=utf-8&useSSL=false
 #    username: root
 #    password: admin_123456
-    url: jdbc:mysql://10.100.0.30/TfourData?characterEncoding=utf-8&useSSL=false
-#    url: jdbc:mysql://192.168.2.105/TfourData?characterEncoding=utf-8&useSSL=false
     type: com.alibaba.druid.pool.DruidDataSource
     #初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
     initialSize: 5
@@ -55,13 +54,40 @@ spring:
       #数据库方言
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
-
+#  缓冲的配置
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:ehcache.xml
 
 
 server:
   port: 8083
   servlet:
-    context-path: /TfourProbe
+    context-path:  /TfourProbe
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /tmp/log
+      prefix: access_log
+      suffix: .log
+      file-date-format: .yyyy-MM-dd
+      pattern: "%t [%I] %{X-Forwarded-For}i %l %u %r %s %b %D"
+#  servlet:
+#    context-path: /TfourProbe
+#  tomcat:
+#    accesslog:
+#      #启用访问日志。
+#      #日志格式 每次访问controller打印一次请求
+#      #[16/Jan/2019:14:02:27 +0800] [http-nio-8082-exec-3] - - - GET /TfourProbe/index HTTP/1.1 200 57 24
+#      enabled: true
+#      directory: /tmp/log
+#      prefix: access_log
+#      suffix: .log
+#      file-date-format: .yyyy-MM-dd
+#      pattern: "%t [%I] %{X-Forwarded-For}i %l %u %r %s %b %D"
+
+
 
 #spring线程池
 task-executor:

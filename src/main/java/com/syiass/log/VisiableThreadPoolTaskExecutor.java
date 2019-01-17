@@ -1,6 +1,8 @@
 package com.syiass.log;
 
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.Callable;
@@ -13,7 +15,6 @@ import java.util.concurrent.ThreadPoolExecutor;
     线程池中有多少线程在执行，多少在队列中等待
 
  */
-@Slf4j
 public class VisiableThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
 
     /*
@@ -30,9 +31,12 @@ async-service-, 2. do submit,taskCount [4], completedTaskCount [4], activeCount 
 
 
      */
+    private static final Logger log = LoggerFactory.getLogger(ThreadPoolTaskExecutor.class);
+
 
     private void showThreadPoolInfo(String prefix) {
         ThreadPoolExecutor threadPoolExecutor = getThreadPoolExecutor();
+
 
         if (null == threadPoolExecutor) {
             return;
