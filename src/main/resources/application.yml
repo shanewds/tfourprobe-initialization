@@ -1,10 +1,6 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-     username: root
-     password: admin_123456
-     url: jdbc:mysql://192.168.2.105/TfourData?characterEncoding=utf-8&useSSL=false
-    type: com.alibaba.druid.pool.DruidDataSource
     #初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
     initialSize: 5
     # 最大和最小连接池数量
