@@ -90,5 +90,5 @@ task-executor:
 #durid账号和密码 自定义的属性
 duridAccount:
   loginUsername: admin
-  loginPassword: syiaas_1234
+  loginPassword: 123456
 
