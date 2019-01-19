@@ -1,15 +1,16 @@
 package com.syiass.controller;
 
-import com.syiass.repository.TagInfoRepository;
 import com.syiass.service.AsyncService;
 import com.syiass.service.AsyncTfourService;
-import com.syiass.service.LabelTouchRecordService;
+import com.syiass.util.HttpServletRequestReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.DataInputStream;
 import java.io.IOException;
 
@@ -22,6 +23,9 @@ public class AsyncController {
 
     @Autowired
     private AsyncTfourService asyncTfourService;
+
+
+    private static final Logger log = LoggerFactory.getLogger(AsyncController.class);
 
     /*
       通过以上日志可以发现，[async-service-]是有多个线程的，显然已经在我们配置的线程池中执行了，
@@ -37,20 +41,17 @@ public class AsyncController {
 //
 //    }
 
-    @GetMapping("/data/upload3")
-    public  String dataupload3(HttpServletRequest request){
-        System.out.println("---触发请求--");
 
-        //spring线程池处理高并发请求
-        DataInputStream in=null;
-        int len = request.getContentLength();
-        byte[] contentbytes = new byte[len];
-        String content=null;
+    //@GetMapping 请求方式Get
+    //接收POST请求 PostMapping
+    //@PostMapping("/data/upload3")
+    @RequestMapping("/data/upload3")
+    public  String dataupload3(HttpServletRequest request, HttpServletResponse response) {
+        log.info("---T4探针发送数据--");
         try {
-            in = new DataInputStream(request.getInputStream());
-            in.readFully(contentbytes);
-            content = new String(contentbytes,"utf-8");
-            System.out.println("content="+content);
+            String content = HttpServletRequestReader.doPost(request,response);
+            System.out.println("content=="+content);
+
             if((content==null)||(content.length()>1600)||(!content.startsWith("sta="))){
                 return "ok";
             }else{
@@ -67,8 +68,6 @@ public class AsyncController {
 //	    		System.out.println("data==="+data);
 //	    		System.out.println("data's length=="+data.length());
 
-
-                long timelong = System.currentTimeMillis();
                 if((sta==null)||(type==null)||(data==null)){
                     return "ok";
                 }else{
@@ -105,13 +104,13 @@ public class AsyncController {
                     if(probeatrue) {
                         System.out.println("---处理上报探测到的mac信息--");
                         //线程池处理
-                        asyncTfourService.executeAsync(content);
+                        //asyncTfourService.executeAsync(content);
                         return "ok";
                     }
 
 
                     if(type.equals("tag")) {
-                        System.out.println("---处理标签--");
+                        log.info("---处理标签--");
                         //线程池处理
                         //处理tag标签
                         asyncService.executeAsync(content);
@@ -125,32 +124,20 @@ public class AsyncController {
                         //处理上报的mac与个人信息映射
                         return "ok";
 
-
                     }
 
-                }}
-
-
-            return "ok";
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            if(in!=null){
-                try {
-                    in.close();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
             }
 
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+
         }
 
-        return "ok";
-
+         return "ok";
     }
-
 
 
 

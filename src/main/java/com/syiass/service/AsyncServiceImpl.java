@@ -53,7 +53,7 @@ public class AsyncServiceImpl implements AsyncService {
         String[] contentsplits = content.split("sta=|&shop=|&time=|&type=|&data=");
         //String sta = contentsplits[0]; //空
         String sta = contentsplits[1];
-        String unite = contentsplits[2];
+        //String unite = contentsplits[2];
         String type = contentsplits[3];
         String data = contentsplits[4];
         //log.info("sta===" + sta);

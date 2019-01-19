@@ -1,11 +1,14 @@
 spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: admin
-    password: 123456
+    password: syiaas_1234
     url: jdbc:mysql://127.0.0.1/TfourData?characterEncoding=utf-8&useSSL=false
-#    username: root
-#    password: admin_123456
     type: com.alibaba.druid.pool.DruidDataSource
     #初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
     initialSize: 5
@@ -73,19 +76,7 @@ server:
       suffix: .log
       file-date-format: .yyyy-MM-dd
       pattern: "%t [%I] %{X-Forwarded-For}i %l %u %r %s %b %D"
-#  servlet:
-#    context-path: /TfourProbe
-#  tomcat:
-#    accesslog:
-#      #启用访问日志。
-#      #日志格式 每次访问controller打印一次请求
-#      #[16/Jan/2019:14:02:27 +0800] [http-nio-8082-exec-3] - - - GET /TfourProbe/index HTTP/1.1 200 57 24
-#      enabled: true
-#      directory: /tmp/log
-#      prefix: access_log
-#      suffix: .log
-#      file-date-format: .yyyy-MM-dd
-#      pattern: "%t [%I] %{X-Forwarded-For}i %l %u %r %s %b %D"
+    uri-encoding: utf-8
 
 
 
@@ -95,4 +86,9 @@ task-executor:
   max_pool_size: 10
   queue-capacity: 20
   name-prefix: async-service-
+
+#durid账号和密码 自定义的属性
+duridAccount:
+  loginUsername: admin
+  loginPassword: syiaas_1234
 

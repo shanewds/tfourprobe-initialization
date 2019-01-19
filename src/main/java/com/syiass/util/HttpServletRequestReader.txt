@@ -1,0 +1,26 @@
+2. 获取请求方法
+Method:POST
+3. 请求的URL/URI
+URL:http://120.253.192.135:18082/TfourProbe/data/upload3 URI:/TfourProbe/data/upload3
+4. 请求的协议版本比如http1.1
+httpProtocolVersion:HTTP/1.1
+5. 请求头字段名称
+(Header) user-agent : zyc0.1
+(Header) host : 120.253.192.135:18082
+(Header) accept : */*
+(Header) content-type : application/x-www-form-urlencoded;charset=utf-8
+(Header) content-length : 98
+(Header) connection : keep-alive
+6. 获取实体内容
+实体内容org.apache.catalina.connector.CoyoteInputStream@21d4238a
+7. 请求参数
+(parameter) sta : 5ccf7fbb7a3f
+(parameter) shop : 1
+(parameter) token : 123232jd
+(parameter) r : 741f4a1918d1
+(parameter) id : 0403e291
+(parameter) type : probeb
+(parameter) data : b20119e6ac8c^
+
+
+
