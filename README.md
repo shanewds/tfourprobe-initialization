@@ -55,6 +55,11 @@ gradle5.1.1 安装参考官网文档 https://gradle.org/install/
     
     需要在java类中定义 private static final Logger log = LoggerFactory.getLogger(类名.class);
     
+    生成的目录结构
+    
+     ![Image text](https://github.com/shanewds/Image/blob/master/image/log.png) 
+    
+    
     
      
     
