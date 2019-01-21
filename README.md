@@ -59,7 +59,6 @@ gradle5.1.1 安装参考官网文档 https://gradle.org/install/
     
     
     
-    ![Image text](https://github.com/shanewds/Image/blob/master/image/log.png) 
     
     
-    
+ ![Image text](https://github.com/shanewds/Image/blob/master/image/log.png) 
